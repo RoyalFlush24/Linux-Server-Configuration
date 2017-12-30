@@ -1,4 +1,4 @@
 # Linux-Server-Configuration
 Configuring a linux server to host a web app securely.
 
-step 1
+In this project we configure a linux server to host our web app.
