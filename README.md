@@ -162,7 +162,7 @@ a. we will need to go to the correct directory
 ~ $ cd /var/www/itemcatalog/
 
 b. clone the correct branch to the correct folder
-~ $ git clone --single-branch https://github.com/arrickx/Item-Catalog-Application --branch online itemcatalog
+~ $ git clone https://github.com/RoyalFlush24/Item-Catalog
 now the application is located inside  /var/www/itemcatalog/itemcatalog
 ```
 * Set up the virtual machine
@@ -202,8 +202,10 @@ import sys
 sys.path.insert(0, '/var/www/itemcatalog/itemcatalog')
 #activate_this is for activate the packages for virtual environment
 activate_this = '/var/www/itemcatalog/itemcatalog/venv/bin/activate_this.py'
-execfile(activate_this, dict(__file__=activate_this))
+with open(activate_this) as file_:
+   exec(file_.read(), dict(__file__=activate_this))
 from project import app as application
+application.secret_key = "super-secret-key"
 ```
 
 * create a new configuration file for our applications virtual host by running
@@ -214,8 +216,6 @@ from project import app as application
 
 ```sh
 <VirtualHost *:80>
-  ServerName ubuntu-512mb-nyc3-01
-  ServerAlias 104.131.87.6
   ServerAdmin local@local
   WSGIScriptAlias / /var/www/itemcatalog/itemcatalog.wsgi
   <Directory /var/www/itemcatalog/itemcatalog/>
