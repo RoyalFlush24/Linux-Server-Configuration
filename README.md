@@ -1,5 +1,5 @@
 # Linux Server Configuration
-* This project included access, secure, and perform the initial configuration of a bare-bones Linux server, it will also include how to install and configure a web and database server and actually host a web application.
+* Configuring a Linux server to host a web app securely.
 
 ## Sever Details
 * Public IP : [104.131.94.64](104.131.94.64)
