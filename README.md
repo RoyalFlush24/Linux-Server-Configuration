@@ -112,6 +112,7 @@ remember to save it
 * then we could install mod_wsgi(depends on web-app built-n python version)
 ```sh
 ~ $ sudo apt-get install libapache2-mod-wsgi #only for python2
+~ $ sudo apt-get install libapache2-mod-wsgi-py3 #for python3
 ```
 ##### 8. Install and setup PostgreSQL
 * psql is our database server, so we need to install it first
