@@ -238,8 +238,61 @@ from project import app as application
 ```sh
 ~ $ sudo apache2ctl restart
 ```
-##### 10. Finish
-* try our [IP address](104.131.87.6) again to test out our application.
+# Additional Installation
+
+## Package Upgrade:
+The unattended-upgrades package can be used to automatically install updated packages, and can be configured to update all packages or just install security updates.
+
+* `sudo apt install unattended-upgrades`
+*  edit the file in `/etc/apt/apt.conf.d/50unattended-upgrades`
+*  uncomment the line - `"${distro_id}:${distro_codename}-updates" `and save it
+*  open the file in /etc/apt/apt.conf.d/10periodic and edit the upgrade-package and autocleaninterval values:
+```
+    APT::Periodic::Update-Package-Lists "1";
+    APT::Periodic::Download-Upgradeable-Packages "1";
+    APT::Periodic::AutocleanInterval "7";
+```
+    
+* The results of unattended-upgrades will be logged to `/var/log/unattended-upgrades`.
+
+Note: Make sure once you run all commands , run the command - `sudo service apache2 restart`
+
+**Resources -** [unattended upgrades](https://help.ubuntu.com/12.04/serverguide/automatic-updates.html).
+
+## Installing and Configuring FAIL2BAN.
+
+Fail2Ban is able to reduce the rate of incorrect authentications attempts however it cannot eliminate the risk that weak authentication presents. Fail2Ban scans log files and bans IP addresses that make too many password failures.  It updates firewall rules to reject the IP address. 
+
+## Installation and configuration steps:
+
+* Install it using `sudo apt-get install fail2ban`
+* open the jail.local file using  `sudo vim /etc/fail2ban/jail.local`.   change the settings :
+```
+	set bantime  = 1800
+     destemail = useremail@domain
+     action = %(action_mwl)s
+     under [ssh] change port = 2220 
+```
+
+and save it .
+* Install sendmail for email notice - `sudo apt-get install sendmail iptables-persistent`
+* stop the service - `sudo service fail2ban stop`
+* start the service - `sudo service fail2ban start`
+* you can check the new rules by typing:  `sudo iptables -S`.
+
+**Resources -** [Fail2ban](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04).
+
+
+## Installing Glances
+
+Glances is a cross-platform monitoring tool which aims to present a maximum of information in a minimum of space through a curses or Web based interface. It can adapt dynamically the displayed information depending on the user interface size.
+
+* Install glances using `sudo pip install glances`
+
+* Run glances - `glances`
+
+
+**Resources -** [glances](https://pypi.python.org/pypi/Glances).
 
 ### References:
 * [Flask and mod_wsg](http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/)
