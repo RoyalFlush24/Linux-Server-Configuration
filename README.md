@@ -6,7 +6,7 @@
 * Server OS : Ubuntu 16.04 x64
 * SSH Port: 2200
 * Server Provider: [DigitalOcean](https://m.do.co/c/c1a77ba6d4e1)
-* Web Apllication: [Item-Catalog](https://github.com/arrickx/Item-Catalog-Application)
+* Web Apllication: [Item-Catalog](https://github.com/RoyalFlush24/Item-Catalog)
 * URL: [104.131.94.64](104.131.94.64)
 
 ### Summary of Software/Package Installed
