@@ -101,7 +101,7 @@ remember to save it
 ##### 6. Use SSH login as grader
 * Use following code on the local machine to login as grader
 ```sh
-~ $ ssh grader@104.131.87.6 -p 2200 -i ~/.ssh/grader
+~ $ ssh grader@104.131.94.64 -p 2200 -i ~/.ssh/grader
 ```
 ##### 7. Install Apache and mod_wsgi
 * after login as grader, use the following code to install apache
