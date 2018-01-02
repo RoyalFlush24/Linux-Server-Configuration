@@ -292,7 +292,6 @@ Glances is a cross-platform monitoring tool which aims to present a maximum of i
 
 * Run glances - `glances`
 
-
 **Resources -** [glances](https://pypi.python.org/pypi/Glances).
 
 ### References:
